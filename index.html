@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Testomonial Generator</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        border: 5px solid rgb(0, 0, 0);
+        margin: 0 auto;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-image: linear-gradient(to right, rgb(0, 255, 221), rgb(200, 0, 255));
+    }
+
+    #testomonial-container {
+        position: relative;
+        width: 80%;
+        height: 400px;
+        background-image: linear-gradient(to right, rgba(21, 0, 255, 0.725), rgba(255, 0, 0, 0.763));
+        display: flex;
+        border: 0px 2px 0px 2px solid rgb(51, 50, 50);
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        border-radius: 50px;
+    }
+
+    .slides {
+        text-align: center;
+        position: relative;
+        display: flex;
+        background-color: #ffffff;
+        width: 100%;
+        height: 300px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 5px;
+        padding: 1%;
+
+        margin: 0 1%;
+    }
+
+    #testomonial-container img {
+        position: absolute;
+        width: 120px;
+        top: -35%;
+
+        border-radius: 50%;
+    }
+
+    .slides p {
+        font-size: 2.8vh;
+        padding-top: 2%;
+
+        text-transform: capitalize;
+
+    }
+
+    .slides h3 {
+        margin-top: 2%;
+        font-size: 3.5vh;
+    }
+
+    #btn-generate {
+        margin-top: 2%;
+        border: none;
+        background: #0033ff;
+        background-image: linear-gradient(to bottom, #0033ff, #03e3eb);
+        border-radius: 32px;
+        box-shadow: 5px 6px 10px #050505;
+        font-family: Georgia;
+        color: #ffffff;
+        font-size: 30px;
+        padding: 10px 20px 10px 20px;
+        text-decoration: none;
+    }
+
+    #btn-generate:hover {
+        background: #3cfcdc;
+        background-image: linear-gradient(to bottom, #3cfcdc, #0505eb);
+        text-decoration: none;
+    }
+</style>
+
+
+
+
+<body>
+    <div id="testomonial-container">
+        <div class="slides">
+            <img src="/Logo/1.png" alt="" id="image">
+            <p class="quats">“No one is to blame for your future situation but yourself. If you want to be successful,
+                then become
+                ‘Successful.’”</p>
+            <h3 class="writer">.Parag Unhale</h3>
+        </div>
+    </div>
+
+    <button id="btn-generate" onclick="updateTestimonial()">Generate Quats</button>
+
+
+    <script>
+        let TestomonialSlides = document.querySelector(".slides");
+        let TestomonialImage = document.getElementById("image");
+        let TestomonialQuats = document.querySelector(".quats");
+        let TestomonialWriter = document.querySelector(".writer");
+
+        //  Create a Object Array of Testomonials
+
+        let testomonialArray = [
+
+
+            {
+                image: "Logo/2.png",
+                quats: "“Things may come to those who wait, but only the things left by those who hustle.”",
+                write: "―Abraham Lincoln"
+            },
+            {
+                image: "Logo/5.png",
+                quats: "“Every successful person in the world is a hustler one way or another. We all hustle to get where we need to be. Only a fool would sit around and wait on another man to feed him.”",
+                write: "―K’wan"
+            },
+            {
+                image: "Logo/7.png",
+                quats: "“Everything comes to him who hustles while he waits.”",
+                write: "―Thomas Edison"
+            },
+            {
+                image: "Logo/3.png",
+                quats: "“Without hustle, talent will only carry you so far.”",
+                write: "―Gary Vaynerchuk"
+            },
+            {
+                image: "Logo/1.png",
+                quats: '“No one is to blame for your future situation but yourself. If you want to be successful,then become ‘Successful.’”',
+                write: "―Parag Unhale"
+            }
+        ];
+
+        //  the index of array 
+
+        let i = 0
+
+        // function for operation 
+
+        function updateTestimonial() {
+            const { image, quats, write } = testomonialArray[i];
+
+            TestomonialImage.src = image;
+            TestomonialQuats.textContent = quats;
+            TestomonialWriter.textContent = write;
+            i++;
+            if (i === testomonialArray.length) {
+                i = 0;
+            }
+        }
+
+ // for slideshow of testimonials 
+//    setInterval(updateTestimonial,3000)
+
+
+    </script>
+</body>
+
+</html>
